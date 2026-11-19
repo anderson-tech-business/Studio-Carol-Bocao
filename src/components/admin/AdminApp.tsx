@@ -29,14 +29,6 @@ type TabId = (typeof TABS)[number]["id"];
 
 const KEYS = { appts: "scb-admin-agenda", sales: "scb-admin-vendas", services: "scb-admin-servicos", tab: "scb-admin-aba" };
 
-function DemoBanner() {
-  return (
-    <div className="bg-cap px-4 py-2 text-center text-[.85rem] font-medium text-blush" role="note">
-      <span className="font-bold text-white">Modo Demonstração</span> — Painel da Carol
-    </div>
-  );
-}
-
 export function AdminApp() {
   const [auth, setAuth] = useState<boolean | null>(null);
   useEffect(() => setAuth(hasSession()), []);
@@ -44,7 +36,6 @@ export function AdminApp() {
   if (auth === null) {
     return (
       <>
-        <DemoBanner />
         <p className="px-4 py-16 text-center text-ink-soft">Carregando painel…</p>
       </>
     );
@@ -52,7 +43,6 @@ export function AdminApp() {
 
   return (
     <>
-      <DemoBanner />
       {auth ? (
         <Dashboard
           onLogout={() => {
@@ -118,6 +108,10 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
             <Link href="/" className="inline-flex min-h-11 items-center gap-1.5 rounded-full px-3 text-sm font-bold text-berry hover:bg-blush-soft">
               <ExternalLink className="h-4 w-4" aria-hidden="true" />
               <span className="hidden sm:inline">Ver site</span>
+            </Link>
+            <Link href="/agendar" className="inline-flex min-h-11 items-center gap-1.5 rounded-full px-3 text-sm font-bold text-berry hover:bg-blush-soft">
+              <CalendarDays className="h-4 w-4" aria-hidden="true" />
+              <span className="hidden sm:inline">Agenda online</span>
             </Link>
             <button type="button" onClick={resetDemo} className="inline-flex min-h-11 items-center gap-1.5 rounded-full px-3 text-sm font-bold text-berry hover:bg-blush-soft" aria-label="Restaurar dados da demonstração">
               <RefreshCw className="h-4 w-4" aria-hidden="true" />

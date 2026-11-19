@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Sans, Poppins } from "next/font/google";
+import { DemoNav } from "@/components/DemoNav";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -33,7 +34,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR" className={`${poppins.variable} ${dmSans.variable}`}>
-      <body>{children}</body>
+      <body>
+        <DemoNav />
+        {children}
+      </body>
     </html>
   );
 }

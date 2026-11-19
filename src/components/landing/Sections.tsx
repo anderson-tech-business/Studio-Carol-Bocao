@@ -257,7 +257,10 @@ export function FinalSection() {
             {studio.address} · WhatsApp {studio.whatsappDisplay} ·{" "}
             <a href={studio.instagramUrl} target="_blank" rel="noopener noreferrer">{studio.instagram}</a>
           </span>
-          <span className="note">Protótipo visual de demonstração. Agendamentos simulados.</span>
+          <span className="note">
+            Protótipo visual de demonstração. Agendamentos simulados. ·{" "}
+            <Link href="/admin">Área da Carol</Link>
+          </span>
         </div>
       </div>
     </section>
