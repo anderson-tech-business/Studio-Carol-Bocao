@@ -46,7 +46,8 @@ Fonte única de dados: `src/data/mock.ts` (studio, categorias, serviços, combos
 | `src/lib/booking.ts` | Contrato dos query params, validação da confirmação, mensagem do WhatsApp, rascunho em `localStorage`. |
 | `src/lib/ics.ts` | Gera iCalendar RFC 5545: horário em UTC, escape de texto, dobra de linhas a 75 octetos, `VALARM` `-PT24H` e `-PT2H`; dispara download via `Blob`. |
 | `src/lib/format.ts` | Moeda, duração, datas em pt-BR sem depender do fuso do aparelho, máscara/validação de celular. |
-| `src/components/landing/*` | Seções da landing (Server Components) + ilhas client: `ServiceMenu`, `ReviewDeck`, `OpenNow`, `LandingEffects`. |
+| `src/components/landing/*` | Seções da landing em Tailwind (mesmo padrão do agendamento/painel). Animações com **Motion** (`motion/react`): `motion.tsx` (Reveal, ScrollProgress, CountUp, SparkleLayer, `MotionConfig reducedMotion="user"`), abas com `layoutId`, linhas com `AnimatePresence`, deck de avaliações com `drag`, pêndulos da vitrine com `useSpring` + velocidade do scroll. Loops decorativos (esmalte escorrendo, marquee, onda do frasco) ficam como keyframes no `tailwind.config.ts`. |
+| `src/components/DemoNav.tsx` | Barra da demonstração no topo de todas as páginas (Site / Agendamento / Painel). |
 | `src/components/booking/*` | `BookingWizard`, `Confirmation`, `BookingShell`. |
 
 ### Contrato de query params (`/agendamento-confirmado`)

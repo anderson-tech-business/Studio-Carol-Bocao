@@ -1,6 +1,6 @@
 # Studio Carol Bocão | Nails & Beauty
 
-Protótipo visual de demonstração (Next.js 15 + TypeScript + Tailwind CSS + Lucide React).
+Protótipo visual de demonstração (Next.js 15 + TypeScript + Tailwind CSS + Motion + Lucide React).
 100% front-end: dados mockados em `src/data/mock.ts`, sem banco de dados e sem autenticação.
 
 ## Rodando

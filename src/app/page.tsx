@@ -1,75 +1,48 @@
-import { Star } from "lucide-react";
+import { ComboSection } from "@/components/landing/ComboSection";
 import { Header } from "@/components/landing/Header";
-import { Hero, Marquee } from "@/components/landing/Hero";
-import { LandingEffects } from "@/components/landing/LandingEffects";
-import { ReviewDeck } from "@/components/landing/ReviewDeck";
-import { ComboSection, FinalSection, LocationCard, ShowcaseSection, WhatsAppFab } from "@/components/landing/Sections";
+import { Hero } from "@/components/landing/Hero";
+import { Marquee } from "@/components/landing/Marquee";
+import { MotionRoot, ScrollProgress, SparkleLayer } from "@/components/landing/motion";
+import { ReviewsBlock } from "@/components/landing/Reviews";
+import { FinalSection, LocationCard, WhatsAppFab } from "@/components/landing/Sections";
 import { ServiceMenu } from "@/components/landing/ServiceMenu";
-import { studio } from "@/data/mock";
-
-function Stars() {
-  const five = Array.from({ length: 5 }, (_, k) => <Star key={k} fill="currentColor" strokeWidth={0} />);
-  return (
-    <span className="stars" aria-label="5 de 5 estrelas">
-      {five}
-      <span className="on" aria-hidden="true">
-        {Array.from({ length: 5 }, (_, k) => (
-          <Star key={k} fill="currentColor" strokeWidth={0} />
-        ))}
-      </span>
-    </span>
-  );
-}
+import { ShowcaseSection } from "@/components/landing/ShowcaseSection";
+import { Section, SectionHead } from "@/components/landing/ui";
 
 export default function HomePage() {
   return (
-    <>
-      <LandingEffects />
+    <MotionRoot>
+      <ScrollProgress />
+      <SparkleLayer />
       <Header />
-      <main id="topo">
+      <main id="topo" className="overflow-x-clip">
         <Hero />
         <Marquee />
         <ComboSection />
 
-        <section className="sec" id="servicos" style={{ paddingTop: 0 }}>
-          <div className="wrap">
-            <div className="sec-head" data-anim="up">
-              <span className="kicker">Tabela de preços</span>
-              <h2 className="h2">
+        <Section id="servicos" className="!pt-0">
+          <SectionHead
+            kicker="Tabela de preços"
+            title={
+              <>
                 Escolha o <em>cuidado</em> de hoje
-              </h2>
-              <p className="lead">Valores fixos e tempo estimado de cada atendimento. Toque em “Agendar” e escolha o horário.</p>
-            </div>
-            <ServiceMenu />
-          </div>
-        </section>
+              </>
+            }
+            lead="Valores fixos e tempo estimado de cada atendimento. Toque em “Agendar” e escolha o horário."
+          />
+          <ServiceMenu />
+        </Section>
 
         <ShowcaseSection />
 
-        <section className="sec" id="avaliacoes">
-          <div className="wrap">
-            <div className="reviews-grid">
-              <div data-anim="up">
-                <span className="kicker">Quem já veio</span>
-                <div className="score" style={{ marginTop: 14 }}>
-                  <div className="score-num">5,0</div>
-                  <div className="score-side">
-                    <Stars />
-                    <span>
-                      Nota no Google com <b>{studio.rating.count} avaliações</b>
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <ReviewDeck />
-            </div>
-            <LocationCard />
-          </div>
-        </section>
+        <Section id="avaliacoes">
+          <ReviewsBlock />
+          <LocationCard />
+        </Section>
 
         <FinalSection />
       </main>
       <WhatsAppFab />
-    </>
+    </MotionRoot>
   );
 }

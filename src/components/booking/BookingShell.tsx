@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import { PolishLogo } from "@/components/icons";
+import { BrandLogo } from "@/components/icons";
 
 /** Moldura simples das telas de agendamento: logo + voltar ao site. */
 export function BookingShell({ children }: { children: React.ReactNode }) {
@@ -8,14 +8,8 @@ export function BookingShell({ children }: { children: React.ReactNode }) {
     <div className="min-h-dvh bg-blush-soft font-body text-ink">
       <header className="sticky top-0 z-40 border-b border-line bg-white/95 backdrop-blur pt-[env(safe-area-inset-top)]">
         <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3">
-          <Link href="/" className="logo" aria-label="Studio Carol Bocão, voltar ao início">
-            <PolishLogo />
-            <span className="logo-txt">
-              <b>
-                carol <i>bocão</i>
-              </b>
-              <small>Nails &amp; Beauty</small>
-            </span>
+          <Link href="/" aria-label="Studio Carol Bocão, voltar ao início">
+            <BrandLogo />
           </Link>
           <Link
             href="/"

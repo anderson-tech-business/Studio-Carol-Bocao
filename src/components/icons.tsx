@@ -20,11 +20,28 @@ export function InstagramIcon(props: SVGProps<SVGSVGElement>) {
 }
 
 /** Frasco de esmalte da logo. */
-export function PolishLogo() {
+export function PolishLogo({ className = "" }: { className?: string }) {
   return (
-    <span className="logo-drop" aria-hidden="true">
-      <span className="cap" />
-      <span className="glass" />
+    <span className={`relative h-[38px] w-[30px] flex-none ${className}`} aria-hidden="true">
+      <span className="absolute left-[9px] top-0 h-[15px] w-3 rounded-t-[3px] rounded-b-[1px] bg-cap" />
+      <span className="absolute bottom-0 left-[3px] h-[23px] w-6 overflow-hidden rounded-[7px] bg-gradient-to-br from-[#D24C88] to-berry">
+        <span className="absolute left-1 top-[3px] h-3 w-1 rounded-[3px] bg-white/60" />
+      </span>
+    </span>
+  );
+}
+
+/** Logo completa (frasco + nome), usada no site e no agendamento. */
+export function BrandLogo() {
+  return (
+    <span className="group flex items-center gap-2.5">
+      <PolishLogo className="group-hover:animate-wiggle" />
+      <span className="grid leading-none">
+        <b className="font-display text-[1.1rem] font-black tracking-[-0.04em] text-berry">
+          carol <i className="text-raspberry">bocão</i>
+        </b>
+        <small className="mt-1 whitespace-nowrap text-[.66rem] uppercase tracking-[0.16em] text-ink-soft">Nails &amp; Beauty</small>
+      </span>
     </span>
   );
 }
